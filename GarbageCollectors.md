@@ -1,5 +1,6 @@
 ### References
 * [Understand Java Garbage Collection](https://www.cubrid.org/blog/understanding-java-garbage-collection)
+* [理解java垃圾回收机制](http://jayfeng.com/2016/03/11/%E7%90%86%E8%A7%A3Java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/)
 
 ### 判断对象已死
 
