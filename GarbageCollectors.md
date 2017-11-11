@@ -1,3 +1,6 @@
+### References
+* [Understand Java Garbage Collection](https://www.cubrid.org/blog/understanding-java-garbage-collection)
+
 ### 判断对象已死
 
 1. **Reference Counter**
