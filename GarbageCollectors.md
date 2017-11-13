@@ -67,6 +67,41 @@
 	2. 根据不同的generation进行垃圾回收
 		1. 新生代: copying
 		2. 老年代：mark and sweep
-	
+
+### 垃圾回收器
+* 新生代回收器
+	1. Serial 回收器
+		* 启动CPU单线程进行copying回收
+		* stop the world
+		* 适合client模式下的新生代
+	2. ParNew
+		* Serial的多线程版本
+	3. Parallel Scavange
+* 老年代回收器
+	1. Serial Old
+		* 使用mark and sweep算法
+	2. Parallel Old
+	3. CMS (Concurrent Mark Sweep)
+		* 步骤
+			1. Initial Mark
+				* 需要stop the world
+				* 标记GC Roots可以直接关联到的对象，速度快
+			2. Concurrent Mark
+				* GC Roots tracing阶段
+				* 可以与用户线程并发进行
+			3. Remark
+				* 需要stop the world
+				* 修正并发标记期间因用户程序继续运作而导致标记产生变动的那一部分对象的标记记录，停顿时间比初始时间长一些，但远比并发时间短. 
+			4. Concurrent Sweep
+				* 可以与用户线程并发进行
+		* 优点
+			1. 并发收集
+			2. 低停顿
+		* 缺点
+			1. 对CPU资源敏感，并发环境会占用资源导致用户线程效率放慢
+			2. 无法处理垃圾浮动， 由于并发环境导致新垃圾不断产生
+			3. MS带来的碎片问题
+	4. G1(Garbage First)
+		
 		
 	
